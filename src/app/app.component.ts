@@ -10,6 +10,24 @@ import { animate, style, transition, trigger } from '@angular/animations';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
+    trigger('headerTrigger', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ]),
+    trigger('header2Trigger', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ]),
     trigger('answerButtonTrigger', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -18,10 +36,11 @@ import { animate, style, transition, trigger } from '@angular/animations';
       transition(':leave', [
         animate('200ms', style({ opacity: 0 }))
       ])
-    ]), trigger('answerTextTrigger', [
+    ]),
+    trigger('answerTextTrigger', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('200ms 100ms', style({ opacity: 1 })),
+        animate('200ms', style({ opacity: 1 })),
       ]),
       transition(':leave', [
         animate('200ms', style({ opacity: 0 }))
@@ -30,16 +49,23 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class AppComponent {
   hasStarted = false;
+  showQuestion = false;
   question = '';
 
   handleStart = () => {
     this.hasStarted = true;
-    setTimeout(() => this.setQuestion(), 200);
+    setTimeout(() => { 
+      this.setQuestion();
+      this.showQuestion = true;
+    }, 200);
   }
 
   handleAnswerChange = () => {
-    this.question = "";
-    setTimeout(() => this.setQuestion(), 200);
+    this.showQuestion = false;
+    setTimeout(() => { 
+      this.setQuestion();
+      this.showQuestion = true;
+    }, 200);
   }
 
   setQuestion = () => {
