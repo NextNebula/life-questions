@@ -1,5 +1,5 @@
 export const questions = [
-    "Paste in some lines of text.Wat zijn de activiteiten waar je helemaal in opgaat en de tijd uit het oog verliest?",
+    "Wat zijn de activiteiten waar je helemaal in opgaat en de tijd uit het oog verliest?",
     "Als geld geen rol speelde, hoe zou je je tijd dan het liefst besteden?",
     "Welke prestaties in je leven maken je het meest trots?",
     "Welke dromen had je als kind die je nog niet hebt waargemaakt?",
