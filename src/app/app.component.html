@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Hoe weet ik wat ik "echt" wil?</h1>
+  <div class="container__question">
+    <button [@answerButtonTrigger] *ngIf="!hasStarted" (click)="handleStart()">Help mij!</button>
+    <h2 [@answerTextTrigger] *ngIf="question">{{ question }}</h2>
+    <button [@answerTextTrigger] *ngIf="question" (click)="handleAnswerChange()">Stel mij nog een vraag!</button>
+  </div>
+</div>
