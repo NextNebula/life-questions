@@ -4,6 +4,10 @@
     flex-direction: column;
     align-items: center;
     padding: 48px 32px;
+    background-size: 300% 300%;
+    background-image: radial-gradient(yellow 0%, yellow 20%, red 100%);
+    background-position: 50% 50%;
+    transition: background-position 8s ease-in-out;
 
     @media only screen and (max-width: 600px) {
         min-height: calc(100vh - 32px);

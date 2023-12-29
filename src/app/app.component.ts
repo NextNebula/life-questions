@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { questions } from './questions';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -47,10 +47,19 @@ import { animate, style, transition, trigger } from '@angular/animations';
       ])
     ]), ]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  @ViewChild('container') container!: ElementRef;
+
   hasStarted = false;
   showQuestion = false;
   question = '';
+
+  ngAfterViewInit(): void {
+    setInterval(() => {
+      console.log('Run')
+      this.container.nativeElement.style.backgroundPosition = `${Math.floor(Math.random() * 100)}% ${Math.floor(Math.random() * 100)}%`;
+    }, 8000)
+  }
 
   handleStart = () => {
     this.hasStarted = true;
